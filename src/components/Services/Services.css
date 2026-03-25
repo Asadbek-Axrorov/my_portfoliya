@@ -1,0 +1,146 @@
+.services {
+  background: linear-gradient(180deg, var(--dark-bg) 0%, var(--light-bg) 100%);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.service-card {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  transform: scale(1.1) rotate(5deg);
+}
+
+.service-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #f1f5f9;
+}
+
+.service-description {
+  color: #94a3b8;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.service-features {
+  list-style: none;
+  padding: 0;
+}
+
+.service-features li {
+  color: #cbd5e1;
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+}
+
+.feature-dot {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+.cta-box {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 20px;
+  padding: 60px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-box::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+  animation: rotate 20s linear infinite;
+}
+
+.cta-box h3 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #f1f5f9;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-box p {
+  font-size: 1.2rem;
+  color: #94a3b8;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-box .btn {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cta-box {
+    padding: 40px 20px;
+  }
+
+  .cta-box h3 {
+    font-size: 1.5rem;
+  }
+
+  .cta-box p {
+    font-size: 1rem;
+  }
+}
