@@ -1,0 +1,213 @@
+.contact {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px;
+  position: relative;
+  overflow: hidden; /* Effektlar tashqariga chiqib ketmasligi uchun */
+  background-color: #0f172a; /* Hero kabi to'q rangli fon */
+}
+
+/* --- TABIAT EFFEKTLARI (FON UCHUN) --- */
+.nature-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.2; /* Xujayin, siz aytganingizdek 20% opacity */
+}
+
+/* Qor/Yomg'ir uchun umumiy nuqtalar */
+.particle {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10vh) translateX(0); }
+  100% { transform: translateY(110vh) translateX(20px); }
+}
+
+/* Quyoshli va bulutli aura (Hero backdrop kabi) */
+.sun-aura {
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.4), transparent 70%);
+  filter: blur(100px);
+  animation: pulse 6s ease-in-out infinite;
+}
+
+.cloud-aura {
+  position: absolute;
+  bottom: -5%;
+  left: -5%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.2), transparent 70%);
+  filter: blur(120px);
+}
+
+/* --- ASOSIY CONTENT --- */
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2; /* Matnlar effekt ustida bo'lishi kerak */
+}
+
+.section-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 15px;
+  color: #f1f5f9;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 1.15rem;
+  margin-bottom: 60px;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* Aloqa kartalari (Hero stat-item uslubida) */
+.contact-info {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid rgba(51, 65, 85, 0.5);
+  animation: slideInLeft 1s ease-out;
+}
+
+.contact-info h3 {
+  color: #f1f5f9;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+}
+
+.info-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 16px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateX(10px);
+  border-color: #6366f1;
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.info-icon {
+  font-size: 1.5rem;
+  color: #6366f1;
+}
+
+.info-content h4 {
+  color: #f1f5f9;
+  margin: 0;
+}
+
+.info-content p {
+  color: #94a3b8;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Forma (Hero content uslubida) */
+.contact-form-container {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid rgba(51, 65, 85, 0.5);
+  animation: slideInRight 1s ease-out;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  color: #f1f5f9;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.form-group input, 
+.form-group textarea {
+  width: 100%;
+  padding: 15px 20px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(51, 65, 85, 1);
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+  outline: none;
+}
+
+/* Tugma (Hero tugmalari kabi) */
+.btn-primary {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+}
+
+/* Animatsiyalar */
+@keyframes pulse {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.1); }
+}
+
+/* Responsivlik */
+@media (max-width: 968px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .section-title { font-size: 2.5rem; }
+}

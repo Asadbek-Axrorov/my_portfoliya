@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaPhone, FaTelegram, FaInstagram, FaGithub, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaPhone, FaTelegram, FaInstagram, FaGithub, FaMapMarkerAlt } from 'react-icons/fa';
 import './Contact.css';
 
 const Contact = () => {
@@ -26,15 +26,14 @@ const Contact = () => {
     setStatus({ type: '', message: '' });
 
     try {
-      // Telegram Bot orqali xabar yuborish
       const telegramMessage = `
-🔔 Yangi Xabar!
+🔔 <b>Yangi Xabar!</b>
 
-👤 Ism: ${formData.name}
-📧 Email: ${formData.email}
-📱 Telefon: ${formData.phone}
+👤 <b>Ism:</b> ${formData.name}
+📧 <b>Email:</b> ${formData.email}
+📱 <b>Telefon:</b> ${formData.phone}
 
-💬 Xabar:
+💬 <b>Xabar:</b>
 ${formData.message}
       `;
 
@@ -45,9 +44,7 @@ ${formData.message}
         `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
         {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             chat_id: TELEGRAM_CHAT_ID,
             text: telegramMessage,
@@ -59,7 +56,7 @@ ${formData.message}
       if (response.ok) {
         setStatus({
           type: 'success',
-          message: 'Xabaringiz muvaffaqiyatli yuborildi! Tez orada bog\'lanamiz.'
+          message: "Xabaringiz muvaffaqiyatli yuborildi! Tez orada bog'lanamiz."
         });
         setFormData({ name: '', email: '', phone: '', message: '' });
       } else {
@@ -68,7 +65,7 @@ ${formData.message}
     } catch (error) {
       setStatus({
         type: 'error',
-        message: 'Xatolik yuz berdi. Iltimos, qaytadan urinib ko\'ring yoki to\'g\'ridan-to\'g\'ri bog\'laning.'
+        message: "Xatolik yuz berdi. Iltimos, qaytadan urinib ko'ring yoki to'g'ridan-to'g'ri bog'laning."
       });
     } finally {
       setLoading(false);
@@ -104,6 +101,17 @@ ${formData.message}
 
   return (
     <section id="contact" className="contact">
+      {/* Fon effektlari - 20% Opacity CSS'da berilgan */}
+      <div className="nature-overlay">
+        <div className="sun-aura"></div>
+        <div className="cloud-aura"></div>
+        <div className="particle" style={{ left: '15%', width: '3px', height: '3px', animationDuration: '4s' }}></div>
+        <div className="particle" style={{ left: '45%', width: '2px', height: '2px', animationDuration: '6s' }}></div>
+        <div className="particle" style={{ left: '80%', width: '4px', height: '4px', animationDuration: '3s' }}></div>
+        <div className="particle" style={{ left: '60%', width: '2px', height: '2px', animationDuration: '5s' }}></div>
+        <div className="particle" style={{ left: '25%', width: '3px', height: '3px', animationDuration: '7s' }}></div>
+      </div>
+
       <div className="container">
         <h2 className="section-title">Bog'lanish</h2>
         <p className="section-subtitle">
